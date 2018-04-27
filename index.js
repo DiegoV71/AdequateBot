@@ -55,6 +55,7 @@ async function onBadPhrase(msg) {
     console.log("Bad phrase:" + text);
     console.log(`${msg.from.first_name} ${msg.from.last_name} ${msg.from.username} ${msg.from.id}`);
     var newText = `${msg.from.first_name} ${msg.from.last_name} говорит:\n` +  text.replace(badPhraseRegex, '***');
+    console.log(`Original text: ${text}`);
     console.log(`Formatted text: ${newText}`);   
     // common.removeMessage(msg);    
     // await bot.sendMessage(msg.chat.id, newText);
