@@ -6,8 +6,6 @@ const port = process.env.PORT || 8443;
 const TelegramBot = require("node-telegram-bot-api");
 
 const CommonFunctions = require("./Libs/CommonFunctions");
-const RatingCommands = require("./Commands/RatingCommands");
-
 let options = {};
 
 if (url) {
