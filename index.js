@@ -53,9 +53,9 @@ async function processPing(msg) {
 async function onBadPhrase(msg) {
     var text = msg.text;
     console.log("Bad phrase:" + text);
-    var newText = text.replace(badPhraseRegex, '***');    
+    var newText = `${msg.from.first_name} ${msg.from.last_name} говорит:\n` +  text.replace(badPhraseRegex, '***');    
     common.removeMessage(msg);    
-    await bot.sendMessage(msg.chat.id, newText, { reply_to_message_id: msg.message_id })
+    await bot.sendMessage(msg.chat.id, newText);
 }
 
 if (url) {
