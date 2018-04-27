@@ -32,7 +32,7 @@ const common = new CommonFunctions(bot);
 
 bot.onText(/^\//, common.removeMessage);
 
-const badPhraseRegex =  /(\S*(?:кек|рофл|лол|мем)\S*)/g;
+const badPhraseRegex =  /(\S*(?:кек|рофл|лол|мем)\S*)/ig;
 bot.onText(badPhraseRegex, onBadPhrase)
 bot.onText(/\/ping/, processPing);
 
