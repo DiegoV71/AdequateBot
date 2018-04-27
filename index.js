@@ -53,9 +53,11 @@ async function processPing(msg) {
 async function onBadPhrase(msg) {
     var text = msg.text;
     console.log("Bad phrase:" + text);
-    var newText = `${msg.from.first_name} ${msg.from.last_name} говорит:\n` +  text.replace(badPhraseRegex, '***');    
-    common.removeMessage(msg);    
-    await bot.sendMessage(msg.chat.id, newText);
+    console.log(`${msg.from.first_name} ${msg.from.last_name} ${msg.from.username} ${msg.from.id}`);
+    var newText = `${msg.from.first_name} ${msg.from.last_name} говорит:\n` +  text.replace(badPhraseRegex, '***');
+    console.log(`Formatted text: ${newText}`);   
+    // common.removeMessage(msg);    
+    // await bot.sendMessage(msg.chat.id, newText);
 }
 
 if (url) {
