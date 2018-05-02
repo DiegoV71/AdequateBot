@@ -33,7 +33,10 @@ const common = new CommonFunctions(bot);
 bot.onText(/^\//, common.removeMessage);
 
 const badPhraseRegex =  /(\S*(?:кек|рофл|лол|мем)\S*)/ig;
+const meRegex = /\/me (.+)/ig;
+
 bot.onText(badPhraseRegex, onBadPhrase)
+bot.onText(meRegex, onMe);
 bot.onText(/\/ping/, processPing);
 
 
@@ -47,7 +50,6 @@ async function processPing(msg) {
 }
 
 /**
- * 
  * @param {TelegramBot.Message} msg 
  */
 async function onBadPhrase(msg) {
@@ -59,6 +61,18 @@ async function onBadPhrase(msg) {
     console.log(`Formatted text: ${newText}`);   
     // common.removeMessage(msg);    
     // await bot.sendMessage(msg.chat.id, newText);
+}
+
+
+/**
+ * @param {TelegramBot.Message} msg 
+ */
+async function onMe(msg)
+{
+    let text = msg.text;
+    let newMsg = `${msg.from.first_name} ${msg.last_name} ${text}`;
+    common.removeMessage(msg);
+    await bot.sendMessage(msg.chat.id, newMsg);
 }
 
 if (url) {
