@@ -72,7 +72,7 @@ async function onMe(msg)
     let text = msg.text;
     let newMsg = `**${msg.from.first_name} ${msg.from.last_name}** ${text.replace(meRegex, '$1')}`;
     common.removeMessage(msg);
-    await bot.sendMessage(msg.chat.id, newMsg, {parse_mode: "markrdown"});
+    await bot.sendMessage(msg.chat.id, newMsg);
 }
 
 if (url) {
