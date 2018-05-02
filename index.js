@@ -70,9 +70,9 @@ async function onBadPhrase(msg) {
 async function onMe(msg)
 {
     let text = msg.text;
-    let newMsg = `${msg.from.first_name} ${msg.last_name} ${text.replace(meRegex, '$1')}`;
+    let newMsg = `**${msg.from.first_name} ${msg.from.last_name}** ${text.replace(meRegex, '$1')}`;
     common.removeMessage(msg);
-    await bot.sendMessage(msg.chat.id, newMsg);
+    await bot.sendMessage(msg.chat.id, newMsg, {parse_mode: "markrdown"});
 }
 
 if (url) {
